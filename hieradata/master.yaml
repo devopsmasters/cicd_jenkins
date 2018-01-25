@@ -90,6 +90,8 @@ jenkins::plugin_hash:
     version: '2.16.4'
   dashboard-view:
     version: '2.9.11'
+  delivery-pipeline-plugin:
+    version: '1.1.1'
   display-url-api:
     version: '2.2.0'
   docker-commons:
