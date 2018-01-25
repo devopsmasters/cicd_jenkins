@@ -21,7 +21,7 @@
 #    data:
 #      model: fullcontrol
 
-class master(
+class masterconfig(
   Optional[Hash] $settings = undef,
   String $host = "http://localhost:8080"
  ){
