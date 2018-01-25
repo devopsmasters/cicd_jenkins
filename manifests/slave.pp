@@ -12,12 +12,19 @@ $list.each |$item| {
   }
 }
 if $terraformzip =~ /(.*\/)(.*\.*)/ {
-  archive { "/tmp/$2":
-    source       => "$terraformzip",
-    extract      => true,
-    extract_path => '/usr/local/bin',
-    creates      => '/usr/local/bin/terraform',
-    cleanup      => false,
+  #archive { "/tmp/$2":
+  #  source       => "$terraformzip",
+  #  extract      => true,
+  #  extract_path => '/usr/local/bin',
+  #  creates      => '/usr/local/bin/terraform',
+  #  cleanup      => false,
+  #}
+  exec { 'install-terraform':
+    path    => ['/bin', '/usr/bin'],
+    command => "unzip -o $2 -d /usr/local/bin",
+    cwd     => '/tmp',
+    onlyif  => "wget $terraformzip",
+    require => Package['wget']
   }
 }
 
