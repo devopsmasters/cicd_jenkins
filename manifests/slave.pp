@@ -17,9 +17,7 @@ if $terraformzip =~ /(.*\/)(.*\.*)/ {
     extract      => true,
     extract_path => '/usr/local/bin',
     creates      => '/usr/local/bin/terraform',
-    user         => 'jenkins-slave',
-    group        => 'jenkins-slave',
-    cleanup      => true,
+    cleanup      => false,
   }
 }
 
