@@ -12,7 +12,7 @@ jenkins::config_hash:
     value: '-Djava.awt.headless=true -Djenkins.install.runSetupWizard=false -Dgroovy.use.classvalue=true'
 
 ## this is used by custom groovy scripts to configure jenkins
-master::settings:
+masterconfig::settings:
   user:
     script: add_user
     data:
