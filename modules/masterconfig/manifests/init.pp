@@ -39,7 +39,7 @@ class masterconfig(
 
      file { "/tmp/$script.groovy":
        ensure  => present,
-       content => template("master/$script.groovy"),
+       content => template("masterconfig/$script.groovy"),
        before  => Exec["$script"]
      }
      exec { "$script":
