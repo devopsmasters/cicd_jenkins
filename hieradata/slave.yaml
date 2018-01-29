@@ -18,6 +18,7 @@ packageslist:
 
 mavenarchive: "http://www-us.apache.org/dist/maven/maven-3/3.5.2/binaries/apache-maven-3.5.2-bin.tar.gz"
 terraformzip: "https://releases.hashicorp.com/terraform/0.11.2/terraform_0.11.2_linux_amd64.zip"
+chefdkrpm: "https://packages.chef.io/files/stable/chefdk/2.4.17/el/7/chefdk-2.4.17-1.el7.x86_64.rpm"
 
 piplist:
 gemlist:
