@@ -5,6 +5,7 @@ include jenkins::slave
 $list = lookup('packageslist')
 $mavenarchive = lookup( { "name" => "mavenarchive", "default_value" => "http://www-us.apache.org/dist/maven/maven-3/3.5.2/binaries/apache-maven-3.5.2-bin.tar.gz" } )
 $terraformzip = lookup( { "name" => "terraformzip", "default_value" => "https://releases.hashicorp.com/terraform/0.11.2/terraform_0.11.2_linux_amd64.zip" } )
+$chefdk = lookup( { "name" => "chefdkrpm", "default_value" => "https://packages.chef.io/files/stable/chefdk/2.4.17/el/7/chefdk-2.4.17-1.el7.x86_64.rpm" } )
 
 $list.each |$item| {
   package { "$item":
@@ -27,6 +28,13 @@ if $terraformzip =~ /(.*\/)(.*\.*)/ {
     require => Package['wget']
   }
 }
+
+package { 'chefdk':
+  ensure   => 'installed',
+  source   => "$chefdk",
+  provider => 'rpm'
+}
+
 
 if $mavenarchive =~ /(.*\/)(.*\.*)/ {
   exec { 'maven-install-from-archive':
